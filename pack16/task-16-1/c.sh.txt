@@ -1,0 +1,6 @@
+#!/bin/sh
+gcc -c -Wall -O2 -DNDEBUG level1.c
+gcc -c -Wall -O2 -DNDEBUG level2.c
+gcc -c -Wall -O2 -DNDEBUG level3.c
+ar rcs myblas.a level1.o level2.o level3.o
+

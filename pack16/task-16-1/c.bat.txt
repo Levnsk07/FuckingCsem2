@@ -1,0 +1,6 @@
+@echo off
+cl /c /Zi /nologo /W4 /O2 /D "NDEBUG" level1.c
+cl /c /Zi /nologo /W4 /O2 /D "NDEBUG" level2.c
+cl /c /Zi /nologo /W4 /O2 /D "NDEBUG" level3.c
+lib /nologo /OUT:myblas.lib level1.obj level2.obj level3.obj
+
