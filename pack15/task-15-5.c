@@ -28,7 +28,8 @@ void convexHull(Point points[], int n) {
         }
     }
 
-    int p = leftmost, q;
+    int p = leftmost;
+    int q;
     int hull[100000], hull_size = 0;
 
     do {

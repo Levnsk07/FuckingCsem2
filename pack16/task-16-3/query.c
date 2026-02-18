@@ -1,23 +1,18 @@
-#include <stdint.h>
 #include "sum.c"
+#include <stdlib.h>
+#include <stdio.h>
 
-// Поиск самого длинного отрезка с началом в l и суммой не более sum
-int Query(int l, int64_t sum) {
-    int left = l;
-    int right = sizeof(prefix) / sizeof(prefix[0]) - 1; // Максимально возможный правый край
-    int result = l; // Изначально отрезок пустой
-
-    // Бинарный поиск по правому краю
-    while (left <= right) {
-        int mid = (left + right) / 2;
-        int64_t current_sum = Sum(l, mid);
-        if (current_sum <= sum) {
-            result = mid;
-            left = mid + 1;
-        } else {
-            right = mid - 1;
+int Query(int L, int64_t S) {
+    int R = SIZE;
+    int64_t sum = Sum(L, SIZE);
+    // а с херали вдруг функции теперь с большой буквы --> нарушение принятых правил наименования функций файлов и объектов
+    while (sum > S) {
+        if (L > R) {
+            printf("FCK");
+            exit(-1);
         }
+        R -= 1;
+        sum = Sum(L, R);
     }
-
-    return result;
+    return R;
 }
