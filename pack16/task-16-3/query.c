@@ -14,7 +14,7 @@ extern int64_t *prefix;  // Объявляем как extern
 
 int Query(int L, int64_t S) {
     int R = SIZE;
-    int64_t sum = Sum(L, SIZE); // а с херали вдруг функции теперь с большой буквы --> нарушение принятых правил наименования функций файлов и объектов
+    int64_t sum = Sum(L, SIZE);
     while (sum > S) {
         if (L > R) {
             printf("FCK");
