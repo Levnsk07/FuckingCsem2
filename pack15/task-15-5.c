@@ -13,24 +13,19 @@ typedef struct {
 // 2, если поворот против часовой стрелки
 int orientation(Point p, Point q, Point r) {
     long long val = (q.y - p.y) * (r.x - q.x) - (q.x - p.x) * (r.y - q.y);
-    if (val == 0) return 0;  // Коллинеарны
+    if (val == 0) return 0; // Коллинеарны
     return (val > 0) ? 1 : 2; // По или против часовой стрелки
 }
 
-// Функция для нахождения выпуклой оболочки
 void convexHull(Point points[], int n) {
-    if (n < 3) {
-        printf("Выпуклая оболочка не существует\n");
-        return;
-    }
+    // Алгоритм Джарвиса
 
     // Находим самую левую точку (и самую нижнюю, если таких несколько)
     int leftmost = 0;
     for (int i = 1; i < n; i++) {
-        if (points[i].x < points[leftmost].x ||
-            (points[i].x == points[leftmost].x && points[i].y < points[leftmost].y)) {
+        if (points[i].x < points[leftmost].x || (points[i].x == points[leftmost].x && points[i].y < points[leftmost].y)) {
             leftmost = i;
-            }
+        }
     }
 
     int p = leftmost, q;

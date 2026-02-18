@@ -1,25 +1,3 @@
 @echo off
+gcc test.c zlib\*.c zlib\minizip\iowin32.c zlib\minizip\unzip.c zlib\minizip\zip.c -Izlib -Izlib\minizip -o test.exe
 
-:: Компиляция zlib
-cl /c /Zi /nologo /W4 /O2 /D "NDEBUG" /D "_LIB" /D "WIN32" /D "_WINDOWS" /D "ZLIB_DLL" /Foobj\ *.c
-lib /nologo /OUT:zlib.lib @<<
-obj\adler32.obj
-obj\compress.obj
-obj\crc32.obj
-obj\deflate.obj
-obj\inffast.obj
-obj\inflate.obj
-obj\inftrees.obj
-obj\trees.obj
-obj\uncompr.obj
-obj\zutil.obj
-<<
-
-:: Компиляция minizip
-cl /c /Zi /nologo /W4 /O2 /D "NDEBUG" /D "_LIB" /D "WIN32" /D "_WINDOWS" /D "USE_CRYPT" /I. /Foobj\ unzip.c ioapi.c
-
-:: Компиляция основной программы
-cl /Zi /nologo /W4 /O2 /D "NDEBUG" /D "WIN32" /D "_WINDOWS" /I. /Fetest.exe test.c obj\unzip.obj obj\ioapi.obj zlib.lib
-
-:: Переименование исполняемого файла
-ren test.exe checked_solution
