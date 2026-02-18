@@ -3,6 +3,13 @@
 
 static int64_t *prefix; // Глобальный массив для хранения префиксных сумм
 static int64_t SIZE;
+
+
+//  для "особой" компеляции static не работает
+// int64_t *prefix; // Глобальный массив для хранения префиксных сумм
+// int64_t SIZE;
+
+
 // Подготовка массива префиксных сумм
 void Init(const int *arr, int n) {
     prefix = (int64_t *) malloc(sizeof(int64_t) * (n+1));
