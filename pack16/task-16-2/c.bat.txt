@@ -1,3 +1,2 @@
 @echo off
-gcc test.c zlib\*.c zlib\minizip\iowin32.c zlib\minizip\unzip.c zlib\minizip\zip.c -Izlib -Izlib\minizip -o test.exe
-
+cl test.c zlib\*.c zlib\minizip\unzip.c zlib\minizip\ioapi.c -Izlib -Izlib\minizip -DUSE_CRYPT -o ./checked_solution
