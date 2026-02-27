@@ -16,7 +16,8 @@ int main() {
 
     char par[50][101];
 
-    for (int i = 0; line[i] != '\0'; ++i) {
+    for (int i = 0; line[i+1] != '\n'; i++) {
+//    for (int i = 0; line[i] != '\0'; ++i) {
         if (line[i] == '"') { // change flag
             in_quotes = !in_quotes;
             memmove(&line[i], &line[i + 1], strlen(line) - i);
@@ -25,7 +26,7 @@ int main() {
         } else if (line[i] == ' ' && !in_quotes) {
             if (start < i) { // split
                 strncpy(par[count], &line[start], i - start);
-                par[count][i - start] = '\0';
+                par[count][i - start-1] = '\0';
                 count++;
             }
             // add symb
