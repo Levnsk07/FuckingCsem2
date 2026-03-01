@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 gcc -c -Wall -O2 -DNDEBUG level1.c
 gcc -c -Wall -O2 -DNDEBUG level2.c
 gcc -c -Wall -O2 -DNDEBUG level3.c
