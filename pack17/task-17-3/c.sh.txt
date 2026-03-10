@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+gcc -Wall -Wextra -std=c11 -fPIC -shared integerset.c -o integerset.so
+
+

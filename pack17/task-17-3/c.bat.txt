@@ -1,0 +1,3 @@
+@echo off
+cl /LD /Feintegerset.dll /W4 /EHsc integerset.c
+
